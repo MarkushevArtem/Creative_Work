@@ -1,29 +1,24 @@
 ﻿#include<iostream>;
+
 using namespace std;
+
 int main()
 {
 	setlocale(0, "");
-	int x, a, b, c;
-	bool f = false;
-	cout << "Введите трехзначное число: ";
+	int x;
+	cout << "Введите трехзначное число : ";
 	cin >> x;
-	while ((x < 100) || (x > 999)) {
-		cout << "Ошибка. Введите трехзначное число: ";
-		cin >> x;
-	}
-	a = x % 10;
-	x = x / 10;
-	b = x % 10;
-	c = x / 10;
+	int a = x % 10, b = x / 100, c = x / 10 % 10;
+	bool f = false;
+	
 	while (f == false) {
-		if ((a == b) || (a == c) || (b == c)) {
+		if (((a == b) or (a == c) or (b == c)) or ((x < 100) or (x > 999))) {
 			cout << "Введите трехзначное число еще раз: ";
 			cin >> x;
 			a = x % 10;
-			x = x / 10;
-			b = x % 10;
-			c = x / 10;
-		}
+			b = x / 100;
+			c = x / 10 % 10;
+		} 
 		else f = true;
 	}
 	cout << "Все возможные комбинации: \n";
